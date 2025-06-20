@@ -2,13 +2,13 @@ const express = require('express');
 const jwt = require('jsonwebtoken');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-
+require('dotenv').config();
 const app = express();
 app.use(cors());
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // Clave secreta para firmar los tokens (¡mantenla segura!)
-const SECRET_KEY = 'mi_clave_secreta';
+const SECRET_KEY = process.env.SECRET_KEY;
 
 // Middleware para parsear JSON
 app.use(bodyParser.json());
